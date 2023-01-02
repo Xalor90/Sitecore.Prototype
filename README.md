@@ -1,6 +1,6 @@
 # Sitecore.Prototype
-__A test instance of Sitecore with Docker, Unicorn, Synthesis, & Bootstrap,
-designed to help create an automated setup path for new projects.__
+_A test instance of Sitecore with Docker, Unicorn, Synthesis, & Bootstrap,
+designed to help create an automated setup path for new projects._
 
 ## About
 This solution represents a dummy Sitecore instance to be used in the course of
