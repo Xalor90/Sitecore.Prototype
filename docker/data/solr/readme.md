@@ -1,0 +1,1 @@
+Solr indexes will be mounted here.
