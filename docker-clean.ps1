@@ -1,13 +1,35 @@
-Get-Item -Path ".env" | Remove-Item -Force -Verbose
+[CmdletBinding()]
+Param (
+	[string]
+	[ValidateNotNullOrEmpty()]
+	$EnvFilePath = ".\.env",
 
-Get-ChildItem -Path (Join-Path $PSScriptRoot "\docker\data") -Directory | ForEach-Object {
-    $dataPath = $_.FullName
+	[string]
+	$DataFolderPath = ".\docker\data",
 
-    Get-ChildItem -Path $dataPath -Exclude "readme.md" -Recurse | Remove-Item -Force -Recurse -Verbose
+	[string]
+	$DeployFolderPath = ".\docker\deploy\website",
+
+	[string]
+	$CertFolderPath = ".\docker\traefik\certs"
+)
+
+if (Test-Path $EnvFilePath) {
+	Remove-Item $EnvFilePath -Force
 }
 
-Get-ChildItem -Path (Join-Path $PSScriptRoot "\docker\traefik") -Directory | ForEach-Object {
-    $itemPath = $_.FullName
+if (Test-Path $DataFolderPath) {
+	Get-ChildItem -Path $DataFolderPath -Directory | ForEach-Object {
+		$dataSubfolderPath = $_.FullName
 
-    Get-ChildItem -Path $itemPath -Exclude "readme.md","dynamic" | Remove-Item -Force -Verbose
+		Get-ChildItem -Path $dataSubfolderPath -Exclude "readme.md" -Recurse | Remove-Item -Force -Recurse -Verbose
+	}
+}
+
+if (Test-Path $DeployFolderPath) {
+	Get-ChildItem -Path $DeployFolderPath -Exclude "readme.md" -Recurse | Remove-Item -Force -Verbose
+}
+
+if (Test-Path $CertFolderPath) {
+	Get-ChildItem -Path $CertFolderPath -Exclude "readme.md" | Remove-Item -Force -Verbose
 }

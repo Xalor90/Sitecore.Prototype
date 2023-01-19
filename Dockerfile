@@ -7,7 +7,7 @@ FROM ${BUILD_IMAGE} AS prep
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Gather only artifacts necessary for NuGet restore, retaining directory structure
-COPY *.sln nuget.config Directory.Build.targets Packages.props \nuget\
+COPY *.sln nuget.config \nuget\
 COPY src\ \temp\
 RUN Invoke-Expression 'robocopy C:\temp C:\nuget\src /s /ndl /njh /njs *.csproj *.scproj packages.config'
 

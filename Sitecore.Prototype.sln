@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Solution", "__Solution", 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		LICENSE.md = LICENSE.md
+		nuget.config = nuget.config
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -15,6 +16,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sitecore.Prototype", "Sitecore.Prototype", "{CEC9292D-2B18-438C-8707-CC90AC7BAD35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Prototype.Web", "src\Application\Sitecore.Prototype\Sitecore.Prototype.Web\Sitecore.Prototype.Web.csproj", "{594F6DD1-A892-4843-8F38-C8C43088B89F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Docker", "__Docker", "{DB341458-A8C7-4209-8F45-5747106C33B3}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.env.template = .env.template
+		compose-init.ps1 = compose-init.ps1
+		docker-clean.ps1 = docker-clean.ps1
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

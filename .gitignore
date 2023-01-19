@@ -292,5 +292,6 @@ __pycache__/
 /.env
 /docker/**/*.crt
 /docker/**/*.key
+/docker/data/logs/*
 /docker/data/solr/*
 !/docker/**/readme.md
